@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            color: black;
+
+        }
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color: white;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+{% include 'heading.html' %}
+{% include  'sideindex.html' %}
+<table align="center">
+    <tr>
+        <th><label>Agent Id</label></th>
+    <th><label>Agent Name</label></th>
+    <th><label>Case Id</label></th>
+    <th><label>Case Name</label></th>
+        <th><label>Case Replace</label></th>
+</tr>
+{% for x in data %}
+  <tr><th> <input value=" {{ x.agent_id }} " name="agentid" readonly></th>
+    {%  for y in data1 %}
+        {% if y.id == x.agent_id %}
+            <th><input  value="{{ y.Agent_Name }} " name="agentname" readonly></th>
+             <th><input value="{{ x.case_id }}" name="caseid" readonly></th>
+            <th><input value="{{ x.case_name }}" name="casename" readonly></th>
+      <th><a  href="/agentchange/?AG={{ y.Agent_Name }}&ai={{ x.agent_id }}&caid={{ x.case_id }}&ca={{ x.case_name }}" style="margin-left: -1%"><label>Change Agent</label></a></th></tr>
+        {% endif %}
+        {% endfor%}
+{% endfor %}
+ </table>
+</body>
+</html>

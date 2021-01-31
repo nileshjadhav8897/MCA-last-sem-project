@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>
+         CYBERNATICS PROTECTOR
+    </title>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<font color="green">
+{% include "homeindex.html" %}
+<table>
+        <tr>
+            <td width="1000"><table align="center" border="1">
+                <tr> <th><label>Job</label></th>
+                    <th><label>Title</label></th>
+                    <th><label>Qualification</label></th>
+                    <th><label>Percentage</label></th>
+                    <th><label>Experience</label></th>
+                    <th><label>Location<</label></th>
+                    <th><label>Salary</label></th>
+                </tr>
+{% for x in data %}
+    <tr>
+    <th><input value="{{ x.Job }}" readonly></th>
+    <th><input value="{{ x.Title }}" readonly></th>
+    <th><input value="{{ x.Qualification }}" readonly></th>
+    <th><input value="{{ x.Percentage }}" readonly></th>
+    <th><input value="{{ x.Experience }}" readonly></th>
+    <th><input value="{{ x.Location }}" readonly></th>
+    <th><input value="{{ x.Salary}}" readonly></th>
+    </tr>
+{% endfor %}
+    </table>
+   </td>
+  </tr>
+</table>
+</font>
+</body>
+</html>

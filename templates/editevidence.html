@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>
+        CYBERNATICS PROTECTOR
+    </title>
+    <style>
+          input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            color: black;
+        }
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color:black;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<table>
+{% include "sideindex_ageent.html" %}
+<th width="1000">
+<form method="post" action="/upevidences/?mn={{ name }}">
+    {% csrf_token %}
+    <table align="center">
+        <tr><th colspan="2"><label>Case Evidence & Status Update</label></th></tr>
+       {% for x in data %}
+           <tr><th><label>Case Id</label></th><th><input value="{{ x.case_id }}" readonly name="casid"></th></tr>
+           <tr><th><label>Case Name</label></th><th><input value=" {{ x.case_name }}"readonly> </th></tr>
+           <tr><th><label>Evidence</label></th><th><input value="{{ x.evidence }}"  name="evi"></th></tr>
+           <tr><th><label>Status</label></th><th><input value=" {{ x.status }}" name="status"></th></tr>
+        {% endfor %}
+        <tr><th></th><th colspan="2"> <input type="submit" value="Update"></th>
+        </tr>
+    </table>
+</form>
+</th></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+   <title>
+     CYBERNATICS PROTECTOR
+</title>
+    <style>
+         input {
+    border-radius: 15px;
+  width: 100%;
+  padding: 5px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+        text-indent:2%;
+}
+        label{
+            background-color: silver;
+               border-radius: 15px;
+  width: 100%;
+  padding: 6px 8px;
+            
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+            text-align: center;
+        }
+        tr{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex.html" %}
+    <form action="/postsaved/" method="post">
+        {% csrf_token %}
+        <table align="center" style="margin-top:1%">
+            <tr><th colspan="2"><label>CRATE A NEW JOB POST</label></th></tr>
+    <tr><th><label>Job</label></th>
+    <th><input type="text" required name="job" autofocus></th></tr>
+    <tr><th><label>Title</label></th>
+    <th><input type="text" required name="name"></th></tr>
+    <tr><th><label>Qualification</label></th>
+    <th><input type="text" required name="qualification"></th></tr>
+    <tr><th><label>Percentage</label></th>
+    <th><input type="number" required name="percentage"></th></tr>
+    <tr><th><label>Experience</label></th>
+    <th><input type="text" required name="exp"></th></tr>
+            <tr><th><label>Last Date</label></th>
+    <th><input type="date" required name="lastdate"></th></tr>
+    <tr><th><label>Location</label></th>
+    <th><input type="text" required name="location"></th></tr>
+    <tr><th><label>Salary</label></th>
+    <th><input type="number" required name="salary"></th></tr>
+    <tr>
+        <th></th>
+    <th><input type="submit" style="background-color: lightgreen" value="Post"></th></tr>
+</table>
+        </form>
+<h1>{{ message }}</h1>
+</body>
+</html>

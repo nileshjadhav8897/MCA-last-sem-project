@@ -1,0 +1,57 @@
+
+        {% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>
+         CYBERNATICS PROTECTOR
+    </title>
+    <style>
+            input {
+                border-radius: 15px;
+                width: 100%;
+                padding: 5px 15px;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            label{
+                background-color: silver;
+                border-radius: 15px;
+                width: 100%;
+                padding: 6px 8px;
+                margin: 0px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                text-align: center;
+            }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex_ageent.html" %}
+          <table align="center" border="0">
+
+                  <th><label>case id</label></th>
+                  <th><label>case name</label></th>
+                 <th><label>evidence</label></th>
+                 <th><label>Status</label></th>
+                  <th><label>update</label></th>
+                </tr>
+               {% for x in data %}
+                       <tr>
+                           <th><input value=" {{ x.case_id }}"readonly/></th>
+                           <th><input value="{{x.case_name}}" readonly/></th>
+                           <th><input value=" {{x.evidence}}" readonly/></th>
+                           <th><input value="{{ x.status }}" readonly/></th>
+                           <th><a style="margin-left: -4%" href="/upevidence/?mno={{ x.case_id }}&mn={{ name }}"><button>Update</button></a> </th>
+                    </tr>
+                {% endfor %}
+            </table>
+</body>
+</html>
+</tr>

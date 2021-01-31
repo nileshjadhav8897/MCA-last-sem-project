@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>
+    CYBERNATICS PROTECTOR
+    </title>
+    <style>
+            input{
+    border-radius: 15px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+        text-align: center;
+}
+            label{
+                    border-radius: 15px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+        text-align: center;
+                background-color: silver;
+            }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex.html" %}
+<table align="center">
+<th width="1000">
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr><td colspan="2"><label>UPDATE AGENT</label></td></tr>
+        <tr><th width="200">{{ form }}</th>
+        <tr><th></th></tr>
+        <tr><th colspan="2"> <input type="submit" value="Update"></th>
+        </tr>
+    </table>
+</form>
+</th></tr>
+</table>
+</body>
+</html>

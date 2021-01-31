@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        CYBERNATICS PROTECTOR
+    </title>
+     <style>
+        textarea{
+            border-radius:15Px;
+            text-indent: 2%;
+        }
+        input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            color: black;
+        }
+
+
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color: white;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<table style="">
+
+    <tr><th><label>Sr.no</label></th><th><label>Job Name</label></th><th><label>Job Title</label></th><th><label>Qualification</label></th><th><label>percentage</label></th><th><label>Experience</label></th><th><label>Last_date</label></th><th><label>Location</label></th><th><label>Salary</label></th><th><label>Job apply</label></th></tr>
+    {% for x in obj %}
+        <tr><th><input value="{{ x.id }}" readonly></th>
+            <th><input value="{{ x.Job }}" readonly></th>
+            <th><input value="{{ x.Title }}" readonly></th>
+            <th><input value="{{ x.Qualification }}" readonly></th>
+            <th><input value="{{ x.Percentage }}" readonly></th>
+            <th><input value="{{ x.Experience }}" readonly></th>
+            <th><input value="{{ x.Last_date}}" readonly></th>
+        <th><input value="{{ x.Location }}" readonly></th>
+        <th><input value="{{ x.Salary }}" readonly></th>
+            <th><label><a href="/apply_jobs/?jobname={{ x.Job }}">Apply</a></label></th>
+        </tr>
+        {% endfor %}
+                 <tr>
+        <th colspan="10"><label>
+      {% if obj.has_previous %}
+                 <a href="?page={{ 1 }}">first</a>
+                 <a href="?page={{ obj.previous_page_number }}">Previous</a>
+            {% endif %}
+       page {{obj.number  }} of {{ obj.paginator.num_pages }}
+             {% if obj.has_next %}
+
+          <a href="?page={{ obj.next_page_number }}">next</a>
+             <a href="?page={{ obj.paginator.num_pages }}">last</a>
+        {% endif %}
+  </label>
+        </th></tr>
+                   {% include 'homeindex.html' %}
+                </tr>
+</table>
+        </th>
+    </tr>
+
+</body>
+
+</html>

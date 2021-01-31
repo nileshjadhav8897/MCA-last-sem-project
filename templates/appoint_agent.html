@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CYBERNATICS PROTECTOR</title>
+    <style>
+         input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            color: black;
+        }
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color:black;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex.html" %}
+        <table align="center">
+            <tr>
+                <th colspan="6">
+                    <label>APPOINTING AGENT</label>
+                </th>
+            </tr>
+        {% if flag == 2 %}
+        <tr><th><label>Case Id</label></th>
+            <th><label>Case Name</label></th>
+            <th><label>Case Details</label></th>
+            <th><label>Date of Case Create</label></th>
+            <th><label>Evidence</label></th>
+        <th><label>Appoint agent</label></th>
+        </tr>
+        {% endif %}
+            {% for x in data %}
+                {% if x.id not in idlist %}
+                    <tr>
+                        <th><input value="{{ x.id }}" readonly></th>
+                        <th><input value="{{ x.case_name }}" readonly></th>
+                        <th><input value="{{ x.case_details }}" readonly></th>
+                        <th><input value="{{ x.doc }}" readonly></th>
+                        <th><input value="{{ x.evidence }}" readonly> </th>
+                        <th><a style="margin-left: -1%" href="/assign_agent/?mno={{ x.id }}"><button>appoint</button></a></th>
+                        </tr>
+                {% endif %}
+            {% endfor %}
+        {% if  flag == 1 %}
+            <tr><th><label>NO New Case to Assign to agent</label></th></tr>
+        {% endif %}
+        </table>
+</body>
+</html>

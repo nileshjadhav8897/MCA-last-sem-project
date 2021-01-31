@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CYBERNATICS PROTECTOR</title>
+    <style>
+        table{
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+   function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+{% include "heading.html" %}
+    {% include "sideindex.html" %}
+    <table align="center">
+        <tr>
+            <th>WELCOME TO ADMIN</th>
+        </tr>
+    </table>
+</body>
+</html>

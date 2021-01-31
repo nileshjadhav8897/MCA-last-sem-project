@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CYBERNATICS PROTECTOR</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         button{
+              border-radius: 12px;
+            width: 100%;
+            padding: 10px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<table align="center" style="margin-top: 1%; margin-bottom: 1%">
+    <tr>
+        <td>
+            <a href="{% url 'agentprofile' %}?mn={{ name }}"><button>My profile</button></a>
+        </td>
+        <td>
+    <a href="/agentcase/?mn={{ name }}"><button>Case details</button></a>
+        </td>
+        <td>
+<a href="/update_evidence/?mn={{ name }}"><button>Update Evidences</button></a>
+        </td>
+        <td>
+<a href="/reports/?mn={{ name }}"><button>Reports</button></a>
+        </td>
+        <td>
+<a href="/agentlogout/"><button>Logout</button></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>CYBERNATICS PROTECTOR</title>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<font color="green">
+<table>
+        <tr>
+            <td width="200">{% include "homeindex.html" %}</td>
+            <td width="1000"><table align="center" border="2" >
+    <tr>
+        <th>idno</th>
+        <th>story title</th>
+         <th>description</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+    <th>{{ x.id }}</th>
+        <th>{{ x.story_title }}</th>
+    <th>{{ x.Description }}</th>
+    </tr>
+    {% endfor %}
+</table>
+    </td>
+        </tr>
+</table>
+</font>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>CYBERNATICS PROTECTOR</title>
+      <style>
+        input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-indent:4px;
+            color: black;
+        }
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color: white;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<table align="center">
+    <form action="/applicant/" method="post">
+        {% csrf_token %}
+        <tr>
+                <tr><th><label>JOB_TITLE</label></th><th><input value="{{ jobname }}" readonly type="text" required name="name"></th></tr>
+                <tr> <th><label>First Name</label></th><th><input type="text" required name="fn"></th></tr>
+                <tr> <th><label>Last Name</label></th><th><input type="text" required name="ln"></th></tr>
+                <tr> <th><label>Date of Birth</label></th><th><input type="date" required name="dob"></th></tr>
+                <tr> <th><label>Qualification</label></th><th><input type="text" required name="quali"></th></tr>
+                <tr> <th><label>percentage</label></th><th><input type="number" required name="percentage"></th></tr>
+                <tr> <th><label>Institute</label></th><th><input type="text" required name="institute"></th></tr>
+                <tr> <th><label>Experience</label></th><th><input type="number" required name="exp"></th></tr>
+                <tr> <th><label>Contact Number</label></th><th><input type="number" required name="cno"></th></tr>
+                <tr><th colspan="2" ><input type="submit" value="Apply"></th></tr>
+             </td>
+        </tr>
+        </form>
+</table>
+    <h1 align="center">{{ message }}</h1>
+</body>
+</html>

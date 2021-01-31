@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>
+     CYBERNATICS PROTECTOR
+</title>
+    <style>
+        input[type=text], input[type=password] {
+            border-radius: 15px;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+}
+        label{
+            border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color:silver;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+
+{% include "heading.html" %}
+{% include "sideindex_ageent.html" %}
+    <table align="center" border="0">
+    <tr>
+        <td><label>agent Id</label></td>
+        <td> <label>case id</label></td>
+        <td><label> case name</label></td>
+        <td><label>evidence</label></td>
+        <td><label>Status</label></td>
+    </tr>
+    {% for x in data %}
+        <tr>
+            <td> <input type="text" value="{{ x.agent_id }}" readonly></td>
+            <td> <input type="text" value="{{ x.case_id }}"readonly></td>
+            <td> <input type="text" value="{{ x.case_name }}" readonly></td>
+            <td><input type="text" value="{{ x.evidence }}" readonly></td>
+            <td>  <input type="text" value=" {{ x.status }}" readonly></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

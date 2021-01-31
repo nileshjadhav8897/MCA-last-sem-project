@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CYBERNATICS PROTECTOR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript">
+   function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+input[type=text], input[type=password] {
+    border-radius: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+    border-radius: 15px;
+  background-color:green;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+        height:230%;
+    width:200%}
+img.avatar {
+  width:70%;
+  border-radius: 50%;
+    margin-left: 35%;
+}
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+</style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<form action="/agentsign/" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <th colspan="2">
+                <div class="imgcontainer" style="padding-left:50%">
+                    <img src="{% static 'images/agent.png' %}" alt="Avatar" class="avatar">
+                    <h3 style="margin-left:33%">Agent Login</h3>
+                </div>
+            </th>
+            <th>
+                <div class="container" style="padding-right: 20%;padding-left: 20%">
+                    <label for="uname"><b>USER NAME</b></label>
+                    <input type="text" placeholder="Enter Email" name="name" required autofocus>
+                    <label for="psw"><b>PASSWORD</b></label> <span style="margin-left: 30%;color:black;background-color: red;font-size: 120%">{{ message }}</span>
+                     <div class="Row">
+                        <input type="password" placeholder="Enter Password" id="myInput" name="password" required>
+                        <input type="checkbox" onclick="myFunction()">  SHOW PASSWORD
+                    </div>
+
+                    <br>
+                    <button type="submit">LOGIN</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

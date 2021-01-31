@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>
+        CYBERNATICS PROTECTOR
+    </title>
+    <style>
+        input,select {
+    border-radius: 15px;
+  width: 100%;
+  padding: 5px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+        text-indent:14%;
+}
+        label{
+            background-color: silver;
+               border-radius: 15px;
+  width: 100%;
+  padding: 6px 8px;
+
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+            text-align: center;
+        }
+        tr{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+      {% include "sideindex.html" %}
+            <form action="/savecasedetails/" method="post">
+            {% csrf_token %}
+            <table align="center" border="0" style="margin-top: 2%">
+                 <tr>
+                    <th colspan="2">
+                    <label>Assgin Agent to Case </label>
+                </th>
+                 <tr>
+                <tr>
+                    <th>
+                    <label>agent Name</label>
+                </th>
+                    <th>
+                        <select name="agentid">
+                            {% for x in agent %}
+                            <option value="{{ x.id }}">{{ x.Agent_Name }}</option>
+                            {% endfor %}
+                        </select>
+                 <tr>
+                     <th><label>case id</label></th>
+                     <th><input type="number" name="caseid" value="{{ data.id }}" readonly></th></tr>
+                <tr> <th><label>case name</label></th>
+                    <th>
+                        <input type="text" name="name" value="{{ data.case_name }}" readonly></th>
+                </tr>
+                <tr>
+                    <th><label>evidence</label></th>
+                    <th>
+                        <input type="text" name="evidence" value="{{ data.evidence }}"readonly>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label>status</label>
+                    </th>
+                    <th><input type="text" name="status"></th>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <input type="submit" value="assign"></th>
+                </tr>
+                </table>
+            </td>
+                <h1>{{ message }}</h1>
+            </form>
+        </tr>
+</table>
+</body>
+</html>

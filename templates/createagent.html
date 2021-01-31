@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        CYBERNATICS PROTECTOR
+    </title>
+    <script type="text/javascript">
+function check()
+{
+
+    var pass1 = document.getElementById('mobile');
+    var message = document.getElementById('message');
+
+   var goodColor = "#0C6";
+    var badColor = "#FF9B37";
+
+    if(mobile.value.length!=10){
+
+        mobile.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "required 10 digits, match requested format!"
+    }}
+    </script>
+    <style>
+
+        input[type=text], input[type=password],input[type=number],input[type=date],input[type=email]
+        {
+            border-radius: 12px;
+            width: 100%;
+            padding: 5px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        label{
+            background-color: silver;
+
+            border-radius: 12px;
+            width: 100%;
+            padding: 5px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        button{
+              border-radius: 12px;
+            width: 100%;
+            padding: 5px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex.html" %}
+<form action="/agentregister/" method="post">
+    {% csrf_token %}
+<table align="center" style="margin-top:1%">
+    <tr><th colspan="2"><label style="padding-left: 20%;font-size: large" >CREATE NEW AGENT</label></th></tr>
+    <tr><th><label>Agent Name</label></th>
+    <th><input type="text" required name="name" autofocus></th></tr>
+    <tr><th><label>Password</label></th>
+    <th><input type="text" required name="password"></th></tr>
+    <tr><th><label>Date of Birth</label></th>
+    <th><input type="date" required name="dateofbirth"></th></tr>
+    <tr><th><label>Contact Number</label></th>
+    <th><input type="text" id="mobile" required name="cno"onkeyup="check(); return false;"><span id="message"></th></tr>
+    <tr><th><label>Qualification</label></th>
+    <th><input type="text" required name="quali"></th></tr>
+    <tr><th><label>Email</label></th>
+        <th><input type="email" required name="email" ></th></tr>
+    <tr><th><label>Address</label></th>
+    <th><input type="text" required name="adress"></th></tr>
+  <tr><th></th> <th c ><button type="submit"style="align-content: center;background-color: lightgreen">CREATE AGENT</button></th></tr>
+</table>
+    </form>
+<input type="hidden" id="message" value="{{ message }}">
+
+</body>
+</html>

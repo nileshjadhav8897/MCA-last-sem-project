@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style>
+               input {
+                   border-radius: 15px;
+                   width: 100%;
+                   padding: 5px 15px;
+                   display: inline-block;
+                   border: 1px solid #ccc;
+                   box-sizing: border-box;
+                   text-align: center;
+}
+        label{
+            background-color: silver;
+               border-radius: 15px;
+            width: 100%;
+            padding: 6px 8px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        tr{
+            margin-bottom: 20px;
+        }
+    </style>
+<title>
+     CYBERNATICS PROTECTOR
+</title>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex.html" %}
+            <form action="/clerk_applicant/" method="post">
+        {% csrf_token %}
+            <<table align="center" border="0">
+                <tr>
+                    <th>
+                        <label>Job Title</label>
+                    </th>
+                    <th>
+                        <label>First Name</label>
+                    </th>
+                    <th>
+                        <label>Last Name</label>
+                    </th>
+                    <th>
+                        <label>Date of Birth</label>
+                    </th>
+                    <th>
+                        <label>Qualification</label>
+                    </th>
+                    <th>
+                        <label>percentage</label>
+                    </th>
+                    <th>
+                        <label>Institute</label>
+                    </th>
+                    <th>
+                        <label>Experience</label>
+                    </th>
+                    <th>
+                        <label>Contact Number</label>
+                    </th>
+                </tr>
+                {% for x in data %}
+                    <tr>
+                 <th>
+                     <input value="{{ x.JOB_TITLE }}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{ x.First_Name }}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{x.Last_Name}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{x.Dob}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{x.Qualification}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{ x.percentage}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{ x.Institute}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{ x.Experience}}" readonly>
+                 </th>
+                 <th>
+                     <input value="{{ x.Contact_Number}}" readonly>
+                 </th>
+                    </tr>
+                {% endfor %}
+            </table>
+            </form>
+</body>
+</html>

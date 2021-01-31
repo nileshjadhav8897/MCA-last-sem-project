@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+     CYBERNATICS PROTECTOR
+</title>
+    <style>
+
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color: white;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<table>
+    <tr>
+         <td style="padding-left:5%" >
+             <img class="mySlides" src="{% static 'images/uct1.jpg' %}" style="width:500px;height:350px">
+             <img class="mySlides" src="{% static 'images/uc3.jpeg' %}" style="width:500px;height: 350px">
+             <img class="mySlides" src="{% static 'images/uc4.jpg' %}" style="width:500px; height: 350px">
+         </td>
+        <td><p style="margin-bottom: 15%;margin-left:2%;margin-right: 2%;font-family: 'Bodoni MT';font-size:x-large" >
+                The Secret Intelligence Agency has always used
+                undercover agents to solve complex cases and
+                dismantle criminal organizations.
+                 We are conceptualizing this software as a solution so that Secret Intelligence
+                Agencies and their agents can communicate through this Software
+                for the exchange of evidences in a secure way.
+            {% include "homeindex.html" %}
+        </p>
+        </td>
+    </tr>
+    <tr>
+        <a hidden href="?mn={{ name }}"></a>
+    </tr>
+</table>
+   <script>
+var myIndex = 0;
+carousel();
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000); // Change image every 2 seconds
+}
+</script>
+</body>
+</html>
+</body>
+</html>

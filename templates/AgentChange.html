@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+       <style>
+        input,select {
+    border-radius: 15px;
+  width: 100%;
+  padding: 5px 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+        text-indent:14%;
+}
+        label{
+            background-color: silver;
+               border-radius: 15px;
+  width: 100%;
+  padding: 6px 8px;
+
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+            text-align: center;
+        }
+        tr{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+{% include 'heading.html' %}
+{% include 'sideindex.html' %}
+<form action="/getagent/" method="post">
+{% csrf_token %}
+<table align="center">
+    <tr>
+    <th>
+        <label>Old Agent Name</label></th><th><input value="{{ ag }}"name="ag">
+    </th>
+    </tr>
+    <tr>
+        <th><label>Old Agent Id</label></th>
+        <th><input value="{{ ai }}"name="ai"></th>
+    </tr>
+<tr>
+    <th><label>Case Id</label></th>
+    <th><input value="{{ caid }}"name="caid"></th>
+</tr>
+<tr>
+    <th><label>Case Name</label></th>
+    <th><input value="{{ ca }}"></th>
+</tr>
+    <tr><th><label> New Agent assign</label></th>
+        <th>
+            <select name="agentid">
+                {% for x in data %}
+                    <option value="{{ x.id }}">{{ x.Agent_Name }}</option>
+                {% endfor %}
+            </select>
+        </th>
+</tr>
+<tr>
+    <th>
+    </th>
+    <th>
+        <button type="submit">Change Agent</button>
+    </th>
+</tr>
+</table>
+</form>
+<body>
+</body>
+</html>

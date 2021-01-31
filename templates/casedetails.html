@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CYBERNATICS PROTECTOR</title>
+    <style>
+         textarea{
+            border-radius:15Px;
+            text-indent: 2%;
+        }
+        input{
+             border-radius: 15px;
+            width: 100%;
+            padding: 10px 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            color: black;
+        }
+        label{
+             border-radius: 15px;
+            width: 100%;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: silver;
+            color:black;
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+{% include "sideindex_ageent.html" %}
+  <table align="center" style="margin-top: 2%">
+  {% for x  in obj %}
+          <tr>
+              <th> <label>Case Creation Date</label></th><th><input value="{{ x.doc }}" readonly></th>
+          </tr>
+      <tr>
+          <th><label>Case Id</label></th><th><input value="{{ x.id }}" readonly></th>
+      </tr>
+      <tr>
+          <th><label>Case Name</label></th><th><input value="{{ x.case_name }}" readonly></th>
+      </tr>
+      <tr>
+          <th><label>Evidence</label></th><th><input value="{{ x.evidence }}" readonly></th>
+      </tr>
+      <tr>
+          <th colspan="2"><label>Case Info</label></th>
+      </tr>
+      <tr>
+      <th colspan="2">
+              <textarea cols="50" rows="5" readonly> {{ x.case_details }}</textarea></th>
+          </tr>
+  {% endfor %}
+  <tr>
+  <th colspan="3">
+  <label>
+      {% if obj.has_previous %}
+                 <a href="?page={{ 1 }}&mn={{ name }}">first</a>
+                 <a href="?page={{ obj.previous_page_number }}&mn={{ name }}">Previous</a>
+            {% endif %}
+      <span style="padding-right: 0%">  page {{obj.number  }} of {{ obj.paginator.num_pages }}</span>
+             {% if obj.has_next %}
+
+          <a href="?page={{ obj.next_page_number }}&mn={{ name }}">next</a>
+             <a href="?page={{ obj.paginator.num_pages }}&mn={{ name }}">last</a>
+        {% endif %}
+  </label>
+  </th>
+  </tr>
+</table>
+</body>
+</html>
