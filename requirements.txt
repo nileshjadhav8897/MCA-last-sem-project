@@ -1,0 +1,29 @@
+     |████████████████████████████████| 79 kB 66 kB/s
+Requirement already satisfied: setuptools>=3.0 in d:\change\4.  secret intelligence agency management\r3\cybernatics_protetor1\venv\lib\site-packages (from 
+gunicorn) (44.1.1)
+Installing collected packages: gunicorn
+Successfully installed gunicorn-20.1.0
+WARNING: You are using pip version 20.1.1; however, 
+version 21.1.2 is available.
+You should consider upgrading via the 'd:\change\4. 
+ secret intelligence agency management\r3\cybernatics_protetor1\venv\scripts\python.exe -m pip install --upgrade pip' command.
+
+(venv) D:\change\4.  Secret Intelligence Agency management\R3\cybernatics_protetor1>pip install whitenoise
+Requirement already satisfied: whitenoise in d:\change\4.  secret intelligence agency management\r3\cybernatics_protetor1\venv\lib\site-packages (5.2.0)
+WARNING: You are using pip version 20.1.1; however, version 21.1.2 is available.
+You should consider upgrading via the 'd:\change\4.  secret intelligence agency management\r3\cybernatics_protetor1\venv\scripts\python.exe -m pip install --upgrade pip' command.
+asgiref==3.3.1
+dj-database-url==0.5.0
+Django==2.2.3
+django-heroku==0.3.1
+djangorestframework==3.12.2
+gunicorn==20.1.0
+importlib-metadata==3.3.0
+Markdown==3.3.3
+mypymysql==1.1
+psycopg2==2.8.6
+pytz==2020.4
+sqlparse==0.4.1
+typing-extensions==3.7.4.3
+whitenoise==5.2.0
+zipp==3.4.0
