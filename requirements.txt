@@ -11,4 +11,3 @@ pytz==2020.4
 sqlparse==0.4.1
 typing-extensions==3.7.4.3
 whitenoise==5.2.0
-zipp==3.4.0
