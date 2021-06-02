@@ -1,1 +1,1 @@
-web : gunicorn cybernatics_protetor.wsgi
+web: gunicorn cybernatics_protetor.wsgi --log-file-
